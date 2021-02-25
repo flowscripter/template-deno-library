@@ -15,7 +15,7 @@
 
 Run: `deno run mod.ts`
 
-Test: `deno test -A --unstable --coverage`
+Test: `deno test -A --unstable
 
 Lint: `deno fmt`
 
