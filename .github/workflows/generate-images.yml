@@ -15,7 +15,7 @@ jobs:
       - name: Get source changes
         id: source_changes
         run: |
-          echo "::set-output name=files::$(git diff --name-only main HEAD | grep -e '.*\.mermaid$' | xargs)"
+          echo "::set-output name=files::$(git diff --name-only $GITHUB_BASE_REF $GITHUB_HEAD_REF | grep -e '.*\.mermaid$' | xargs)"
       - name: Show source changes
         run: |
           echo ${{ steps.source_changes.outputs.files }}
