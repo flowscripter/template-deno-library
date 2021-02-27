@@ -3,4 +3,6 @@ import { log } from "../deps.ts";
 /**
  * Logs out `World`.
  */
-log.info("World");
+export function world(): void {
+    log.info("World");
+}
