@@ -1,0 +1,36 @@
+name: generate-images
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '**/*.mermaid'
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Get changes
+        id: changes
+        run: echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep -e '.*\.mermaid$' | xargs)"
+      - name: Show changes
+        run: echo ${{ steps.changes.outputs.files }}
+      - name: Compile mermaid
+        uses: neenjaw/compile-mermaid-markdown-action@0.2.3
+        with:
+          files: ${{ steps.changes.outputs.files }}
+          output: 'images'
+        env:
+          HIDE_CODEBLOCKS: 1
+          ABSOLUTE_IMAGE_LINKS: 1
+      - name: Show changes
+        run: git status
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "chore: generate images" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
