@@ -1,23 +1,29 @@
 # template-deno-library
 
-[![ci](https://github.com/flowscripter/template-deno-application/workflows/release-deno-library/badge.svg)](https://github.com/flowscripter/template-deno-library)
-![dependencies](https://img.shields.io/endpoint?url=https%3A%2F%2Fdeno-visualizer.danopia.net%2Fshields%2Fupdates%2Fx%template-deno-library%2Fmod.ts)
-[![version](https://img.shields.io/endpoint?url=https%3A%2F%2Fdeno-visualizer.danopia.net%2Fshields%2Flatest-version%2Fx%2Ftemplate-deno-library%2Fmod.ts)](https://doc.deno.land/https/deno.land/x/template-deno-library/mod.ts)
+[![version](https://img.shields.io/github/v/release/flowscripter/template-deno-library?sort=semver)](https://github.com/flowscripter/template-deno-library/releases)
+[![build](https://img.shields.io/github/workflow/status/flowscripter/template-deno-library/release-deno-library)](https://github.com/flowscripter/template-deno-library)
+[![dependencies](https://img.shields.io/endpoint?url=https%3A%2F%2Fdeno-visualizer.danopia.net%2Fshields%2Fupdates%2Fhttps%2Fraw.githubusercontent.com%2Fflowscripter%2Ftemplate-deno-library%2Fmain%2Fmod.ts)]((https://github.com/flowscripter/template-deno-library/blob/main/deps.ts))
+[![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https/raw.githubusercontent.com/flowscripter/template-deno-library/main/mod.ts)
+[![license: MIT](https://img.shields.io/github/license/flowscripter/template-deno-library)](https://github.com/flowscripter/template-deno-library/blob/main/LICENSE)
 
 > Project template for a Deno library.
 
 ## Usage
 
-1. Export and expand a zip of this repository.
+1. Use as a [template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) to create a new repository.
 2. Update links and references in `README.md`.
 
 ## Development
 
 Run: `deno run mod.ts`
 
-Test: `deno test -A --unstable
+Test: `deno test -A --unstable`
 
 Lint: `deno fmt`
+
+## Documentation
+
+[API Documentation](https://doc.deno.land/https/raw.githubusercontent.com/flowscripter/template-deno-library/main/mod.ts)
 
 ## License
 

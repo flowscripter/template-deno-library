@@ -1,4 +1,4 @@
-name: release-deno-executable
+name: release-deno-library
 on:
   push:
     branches: [main]
