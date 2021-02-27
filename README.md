@@ -10,7 +10,9 @@
 
 ## Usage
 
-1. Use as a [template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) to create a new repository.
+1. Use as a
+   [template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template)
+   to create a new repository.
 2. Update links and references in `README.md`.
 
 ## Development
