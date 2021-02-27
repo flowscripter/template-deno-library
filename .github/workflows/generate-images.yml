@@ -20,15 +20,12 @@ jobs:
         run: |
           echo ${{ steps.changes.outputs.files }}
       - name: Compile mermaid
-        uses: neenjaw/compile-mermaid-markdown-action@0.2.3
+        uses: neenjaw/compile-mermaid-markdown-action@0.2.4
         with:
           files: ${{ steps.changes.outputs.files }}
           output: 'images'
-        env:
-          HIDE_CODEBLOCKS: 1
-          ABSOLUTE_IMAGE_LINKS: 1
       - name: Show changes
-        run: 
+        run: |
           git status
       - name: Commit files
         run: |
