@@ -36,7 +36,9 @@ jobs:
       - name: Rename result files
         if: steps.source_changes.outputs.files != ''
         run: |
-            for i in images/*-mermaid.png; do mv "$i" "${i%-mermaid.png}.png"; done
+            cd images
+            for i in *-mermaid.png; do mv "$i" "${i%-mermaid.png}.png"; done
+            cd ..
       - name: Commit files
         if: steps.result_changes.outputs.files != ''
         run: |
