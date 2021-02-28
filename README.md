@@ -27,9 +27,13 @@ Lint: `deno fmt`
 
 ### Overview
 
+PNG image generated from `images/uml_diagram.mermaid`:
+
 ![UML Diagram](images/uml_diagram.png "UML Diagram")
 
 ### API
+
+Link to auto-generated API docs for the library:
 
 [API Documentation](https://doc.deno.land/https/raw.githubusercontent.com/flowscripter/template-deno-library/main/mod.ts)
 
