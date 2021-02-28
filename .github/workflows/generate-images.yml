@@ -23,7 +23,7 @@ jobs:
         if: steps.source_changes.outputs.files != ''
         uses: neenjaw/compile-mermaid-markdown-action@0.2.4
         with:
-          files: ${{ steps.changes.outputs.files }}
+          files: ${{ steps.source_changes.outputs.files }}
           output: 'images'
       - name: Get result changes
         id: result_changes
