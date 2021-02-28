@@ -1,4 +1,4 @@
-name: generate-images
+name: generate-png-from-mermaid
 on:
   push:
     branches-ignore: [main]
