@@ -1,5 +1,7 @@
 import { assert } from "./test_deps.ts";
+import { world } from "../src/world.ts";
 
 Deno.test("World Test", () => {
-  assert("World");
+  world();
+  assert(true);
 });
