@@ -33,7 +33,7 @@ jobs:
         if: steps.source_changes.outputs.files != ''
         run: |
           echo ${{ steps.result_changes.outputs.files }}
-      - name: Show result changes
+      - name: Rename result files
         if: steps.source_changes.outputs.files != ''
         run: |
             for i in images/*-mermaid.png; do mv "$i" "${i%-mermaid.png}.png"; done
