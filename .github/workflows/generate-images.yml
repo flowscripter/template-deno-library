@@ -33,6 +33,10 @@ jobs:
         if: steps.source_changes.outputs.files != ''
         run: |
           echo ${{ steps.result_changes.outputs.files }}
+      - name: Show result changes
+        if: steps.source_changes.outputs.files != ''
+        run: |
+            for i in images/*-mermaid.png; do mv "$i" "${i%-mermaid.png}.png"; done
       - name: Commit files
         if: steps.result_changes.outputs.files != ''
         run: |
