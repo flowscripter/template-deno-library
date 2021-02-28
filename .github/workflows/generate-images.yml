@@ -1,15 +1,17 @@
 name: generate-images
 on:
-  pull_request:
-    branches: [main]
+  push:
+    branches-ignore: [main]
     paths:
-      - '**/*.mermaid'
+      - 'images/*.mermaid'
 jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - uses: technote-space/get-diff-action@v4
         with:
           PATTERNS: |
@@ -49,4 +51,3 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.CREATE_PR_TOKEN }}
-          branch: ${{ github.head_ref }}
