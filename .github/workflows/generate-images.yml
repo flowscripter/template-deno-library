@@ -3,7 +3,7 @@ on:
   push:
     branches-ignore: [main]
     paths:
-      - '**/*.mermaid'
+      - 'images/*.mermaid'
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -11,11 +11,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0
+          fetch-depth: 2
+          token: ${{ secrets.CREATE_PR_TOKEN }}
       - name: Get source changes
         id: source_changes
         run: |
-          echo "::set-output name=files::$(git diff --name-only $GITHUB_SHA | grep -e '.*\.mermaid$' | xargs)"
+          echo "::set-output name=files::$(git diff --no-commit-id --name-only HEAD^ HEAD | grep -e '.*\.mermaid$' | xargs)"
       - name: Show source changes
         run: |
           echo ${{ steps.source_changes.outputs.files }}
@@ -36,19 +37,14 @@ jobs:
       - name: Rename result files
         if: steps.source_changes.outputs.files != ''
         run: |
-            cd images
-            for i in *-mermaid.png; do mv "$i" "${i%-mermaid.png}.png"; done
-            cd ..
-      - name: Commit files
+            for i in images/*-mermaid.png; do mv "$i" "${i%-mermaid.png}.png"; done
+      - name: Add files
         if: steps.result_changes.outputs.files != ''
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
           git add images/*
-          git commit -m "chore: generate images" images/*
-      - name: Push changes
+      - name: Commit and push changes
         if: steps.result_changes.outputs.files != ''
-        uses: ad-m/github-push-action@master
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+          commit_message: 'chore: generate images'
+          file_pattern: 'images/*'
