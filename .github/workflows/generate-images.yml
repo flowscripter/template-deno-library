@@ -1,7 +1,7 @@
 name: generate-images
 on:
-  push:
-    branches-ignore: [main]
+  pull_request:
+    branches: [main]
     paths:
       - '**/*.mermaid'
 jobs:
@@ -15,7 +15,7 @@ jobs:
       - name: Get source changes
         id: source_changes
         run: |
-          echo "::set-output name=files::$(git diff --no-commit-id --name-only main $GITHUB_SHA | grep -e '.*\.mermaid$' | xargs)"
+          echo "::set-output name=files::$(git diff --no-commit-id --name-only remotes/origin/$GITHUB_BASE_REF | grep -e '.*\.mermaid$' | xargs)"
       - name: Show source changes
         run: |
           echo ${{ steps.source_changes.outputs.files }}
@@ -50,5 +50,5 @@ jobs:
         if: steps.result_changes.outputs.files != ''
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+          github_token: ${{ secrets.CREATE_PR_TOKEN }}
+          branch: ${{ github.head_ref }}
