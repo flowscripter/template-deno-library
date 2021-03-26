@@ -16,8 +16,6 @@ jobs:
         uses: denolib/setup-deno@v2
         with:
           deno-version: ${{ matrix.deno }}
-      - name: Cache dependencies
-        run: deno cache deps.ts
       - name: Run tests
         run: deno test -A --unstable
   release:
@@ -25,17 +23,11 @@ jobs:
     needs:
       - test
     steps:
-      - name: Checkout source
-        uses: actions/checkout@v2
-      - name: Setup Deno
-        uses: denolib/setup-deno@v2
-        with:
-          deno-version: v1.x
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
           node-version: 13
       - name: Release Deno
-        uses: flowscripter/.github/actions/release-deno-library@v1.7
+        uses: flowscripter/.github/actions/release-deno-library@v1.16
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
