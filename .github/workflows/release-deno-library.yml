@@ -28,10 +28,6 @@ jobs:
     needs:
       - test
     steps:
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 13
       - name: Release Deno
         uses: flowscripter/.github/actions/release-deno-library@v1
         with:
