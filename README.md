@@ -18,8 +18,6 @@
 
 ## Development
 
-Run: `deno run mod.ts`
-
 Test: `deno test -A --unstable`
 
 Lint: `deno fmt`
