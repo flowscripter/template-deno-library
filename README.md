@@ -36,7 +36,7 @@ Lint: `deno fmt`
 
 PNG image generated from `images/uml_diagram.mermaid`:
 
-![UML Diagram](images/uml_diagram.png "UML Diagram")
+![UML Diagram](https://raw.githubusercontent.com/flowscripter/template-deno-library/main/images/uml_diagram.png "UML Diagram")
 
 ### API
 
