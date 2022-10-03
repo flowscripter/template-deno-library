@@ -34,9 +34,10 @@ Lint: `deno fmt`
 
 ### Overview
 
-PNG image generated from `images/uml_diagram.mermaid`:
-
-![UML Diagram](https://raw.githubusercontent.com/flowscripter/template-deno-library/main/images/uml_diagram.png "UML Diagram")
+```mermaid
+classDiagram
+    Foo <|-- Bar
+```
 
 ### API
 
