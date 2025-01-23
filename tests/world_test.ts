@@ -1,4 +1,4 @@
-import { assert } from "./test_deps.ts";
+import { assert } from "@std/assert";
 import { world } from "../src/world.ts";
 
 Deno.test("World Test", () => {
