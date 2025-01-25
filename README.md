@@ -6,7 +6,7 @@
 [![deno doc](https://doc.deno.land/badge.svg)](https://jsr.io/@flowscripter/template-deno-library/doc)
 [![license: MIT](https://img.shields.io/github/license/flowscripter/template-deno-library)](https://github.com/flowscripter/template-deno-library/blob/main/LICENSE)
 
-> Project template for a Deno library.
+> Project template for a Deno library
 
 ## Project Template Usage
 
